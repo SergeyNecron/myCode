@@ -9,10 +9,8 @@ import javax.swing.WindowConstants;
 public class MainFrame extends JFrame {
     public void init() {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setSize(new Dimension(600, 400));
-
+        setSize(new Dimension(800, 600));
+        setState(Frame.MAXIMIZED_BOTH);
         setVisible(true);
-        setState(Frame.NORMAL);
-        show();
     }
 }

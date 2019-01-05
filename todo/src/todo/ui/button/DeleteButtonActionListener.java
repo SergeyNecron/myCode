@@ -2,9 +2,10 @@ package todo.ui.button;
 
 import java.awt.event.ActionEvent;
 
-
+//инициализируется и передаётся в ActionListenerButton
 public class DeleteButtonActionListener 
              extends ListTableActionListener {
+    @Override
     public void actionPerformed(ActionEvent e) {
         int selectedRow = table.getSelectedRow();
 

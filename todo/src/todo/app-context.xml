@@ -2,19 +2,19 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
           "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
+  <!--инициализация общего фрейма-->
   <bean id="mainFrame" class="todo.ui.MainFrame" init-method="init">
     <property name="contentPane">
       <ref bean="mainPanel"/>
     </property>
     <property name="title">
-      <value>My To Do List</value>
+      <value>Sample ToDo List</value>
     </property>
   </bean>
-  <bean id="mainPanel" class="todo.ui.BoxLayoutPanel" 
+  <!--инициализация 2-х панелей для этого фрейма-->
+  <bean id="mainPanel" class="todo.ui.BoxLayoutPanel"
         init-method="init">
     <property name="axis">
-      <!--  "1" corresponds to BoxLayout.Y_AXIS -->
-      <!--  Spring can access constants, but it's more complex -->
       <value>1</value>
     </property>
     <property name="panelComponents">
@@ -25,29 +25,36 @@
     </property>
   </bean>
   <bean id="itemScrollPane" class="javax.swing.JScrollPane">
+    <!--JScrollPane - в нём отображается сама таблица, в него передаём itemTable-->
     <constructor-arg>
       <ref bean="itemTable"/>
     </constructor-arg>
   </bean>
+  <!--инициализация таблици которая будет находиться в первой панели-->
   <bean id="itemTable" class="javax.swing.JTable">
+    <!-- объект в котором показываються записи по заметкам-->
     <property name="model">
       <ref bean="itemTableModel"/>
     </property>
   </bean>
+  <!--получение данных для таблицы-->
   <bean id="itemTableModel" class="todo.ui.ItemTableModel">
+    <!--объект модели данных которые мы передаём в компонент -->
     <property name="itemList">
       <ref bean="itemList"/>
     </property>
   </bean>
+  <!--инициализации списка для данных для таблицы-->
   <bean id="itemList" class="java.util.ArrayList">
     <constructor-arg>
       <list>
-        <value>Item 1</value>
-        <value>Item 2</value>
-        <value>Item 3</value>
+        <value>Строка  1</value>
+        <value>Привет</value>
+        <value>Swing</value>
       </list>
     </constructor-arg>
   </bean>
+  <!--инициализаци панели с кнопками-->
   <bean id="buttonPanel" class=
      "todo.ui.BoxLayoutPanel" init-method="init">
     <property name="axis">
@@ -61,16 +68,17 @@
       </list>
     </property>
   </bean>
-  <bean id="deleteButton" class="todo.ui.button.ActionListenerButton" 
+  <bean id="deleteButton" class="todo.ui.button.ActionListenerButton"
         init-method="init">
     <property name="actionListener">
       <ref bean="deleteButtonActionListener"/>
     </property>
     <property name="text">
-      <value>Delete</value>
+      <value>Удалить строку</value>
     </property>
   </bean>
-  <bean id="deleteButtonActionListener" 
+  <!--слушает нажатие клавиши-->
+  <bean id="deleteButtonActionListener"
         class="todo.ui.button.DeleteButtonActionListener">
     <property name="list">
       <ref bean="itemList"/>
@@ -79,16 +87,17 @@
       <ref bean="itemTable"/>
     </property>
   </bean>
-  <bean id="addNewButton" class="todo.ui.button.ActionListenerButton" 
+  <bean id="addNewButton" class="todo.ui.button.ActionListenerButton"
         init-method="init">
     <property name="actionListener">
       <ref bean="addNewButtonActionListener"/>
     </property>
     <property name="text">
-      <value>Add New</value>
+      <value>Добавить строку</value>
     </property>
   </bean>
-  <bean id="addNewButtonActionListener" 
+  <!--слушает нажатие клавиши-->
+  <bean id="addNewButtonActionListener"
         class="todo.ui.button.AddNewButtonActionListener">
     <property name="list">
       <ref bean="itemList"/>
