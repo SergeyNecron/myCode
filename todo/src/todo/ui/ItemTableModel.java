@@ -7,7 +7,7 @@ import javax.swing.table.AbstractTableModel;
 public class ItemTableModel extends AbstractTableModel //по правилам swing обзательно
  {
 //эта коллекция являеться источником данных для JTable
-    List itemList;
+   private List itemList;
 
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return true;
@@ -18,7 +18,7 @@ public class ItemTableModel extends AbstractTableModel //по правилам s
     }
 
     public String getColumnName(int column) {
-        return "Items";
+        return "Мои заметки";
     }
 //задаём коллекцию
     public void setItemList(List itemList) {

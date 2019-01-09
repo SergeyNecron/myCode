@@ -7,7 +7,7 @@ public class AddNewButtonActionListener extends
   ListTableActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
-        list.add("New Item");
+        list.add("Новая заметка");
         table.revalidate();
     }
 }
