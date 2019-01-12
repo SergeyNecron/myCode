@@ -5,7 +5,7 @@
     <title>MyCRUD</title>
 </head>
 <body>
-<center>
+<div style="text-align: center;">
     <br/>
     <br/>
     <br/>
@@ -15,6 +15,6 @@
     <br/>
     <a href="<c:url value="/users"/>" target="_blank">Войти</a>
     <br/>
-    </center>
+    </div>
 </body>
 </html>
