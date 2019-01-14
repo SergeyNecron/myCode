@@ -23,6 +23,6 @@ P.S
 Это можно сделать так:
   # mysql -u root
   mysql> create database test character set utf8;
-  mysql> CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
-  mysql> grant all privileges on test.* to user@localhost identified by 'password';
+  mysql> CREATE USER 'user'@'localhost' IDENTIFIED BY 'Password1!';
+  mysql> grant all privileges on test.* to user@localhost identified by 'Password1!';
   
