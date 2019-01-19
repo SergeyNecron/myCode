@@ -1,3 +1,6 @@
+package bot;
+
+import lib.ChatConnection;
 public class Bot {
     public static void main(String[] ar) {
         System.out.println("Загрузка ИИ");
@@ -13,7 +16,7 @@ public class Bot {
         System.out.println("100%");
         System.out.println("Я готов, спрашивай");
         String name = "Клиент ";
-        Connection connection = new Connection(name, false);
-        connection.run();
+        ChatConnection chatConnection = new ChatConnection(name, false);
+        chatConnection.run();
     }
 }

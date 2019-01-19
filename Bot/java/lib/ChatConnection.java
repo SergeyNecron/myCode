@@ -1,23 +1,31 @@
+package lib;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-class Connection {
+public class ChatConnection extends Thread {
     private String name;
     private Boolean t;
+    private ServerSocket ss;
 
-    Connection(String name, Boolean t) {
+    public ChatConnection(String name, Boolean t) {
         this.name = name;
         this.t = t;
     }
 
-    void run() {
+    public ChatConnection(String name, Boolean t, ServerSocket ss) {
+        this.name = name;
+        this.t = t;
+        this.ss = ss;
+    }
+
+    @Override
+    public void run() {
         Socket socket;
         try {
             if (t) {
-                ServerSocket ss = new ServerSocket(9999); // создаем сокет сервера c вышеуказанным портом
                 System.out.println("Ожидание клиента");
                 socket = ss.accept(); // ждём подключений
                 System.out.println("Подключение выполнено");
